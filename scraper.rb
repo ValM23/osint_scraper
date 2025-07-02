@@ -5,6 +5,9 @@ puts "Welcome to Osint Scraper 00\n"
 puts "Don't do anything illegal\n"
 puts "Please enter the URL you want to scrape (e.g., https://valm23.github.io):"
 target_url = gets.chomp #reads user input.
+puts "So, what're we looking for? (Comma-separated, e.g., 'cybersecuity, network, analyst, baker who talked to my ex'):"
+keyword_get = gets.chomp
+keywords = keyword_get.split(',').map(&:strip).reject(&:empty?)
 #Uses Open-URI to read our variable, stored as target_url and reads code.
 html_content = URI.open(target_url).read
 doc = Nokogiri::HTML(html_content)
