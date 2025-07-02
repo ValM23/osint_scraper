@@ -20,4 +20,19 @@ else
 end
 
 experience_data = full_text_block.scan(/company = "(.*?)"\n.*?role = "(.*?)"\n.*?dates = "(.*?)"/m)
-puts 
+#Time to build a table from Ikea....but with legs made of data 
+headers = ["Company", "Role", "Dates"]
+
+#Init Width and lengths by checking the length of the data/headers
+column_width = headers.map(&:length)
+#^ Shorthand courtesy of Gemini-Sensei
+experience_data.each do |job_entry|
+  job_entry.each_with_index do |value, index|
+    if value.length > column_width[index]
+      column_width[index] = value.length
+    end
+  end
+end
+#Cushion for data pushin
+column_width = column_width.map { |width| width + 2 }
+puts "Here's how thicc it is: #{column_width.inspect}"
