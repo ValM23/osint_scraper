@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
-#URL to fetch, using portfolio for illustrative purposes
+#URL to fetch
 target_url = "https://valm23.github.io"
 #Uses Open-URI to read our variable, stored as target_url and reads code.
 html_content = URI.open(target_url).read
@@ -46,4 +46,12 @@ header = headers.each_with_index.map do |header, index|
   header.ljust(column_width[index])
 end
 puts '|' + header.join('|') + '|'
+print_horizontal_line(column_width)
+
+experience_data.each do |job_entry|
+  rows = job_entry.each_with_index.map do |value, index|
+    value.ljust(column_width[index])
+  end
+  puts '|' + rows.join('|') + '|'
+end
 print_horizontal_line(column_width)
