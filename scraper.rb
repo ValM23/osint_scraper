@@ -1,7 +1,9 @@
 require 'open-uri'
 require 'nokogiri'
 #URL to fetch
-target_url = "https://valm23.github.io"
+puts "Welcome to Osint Scraper 00\n"
+puts "Don't do anything illegal\n"
+puts "Please enter the URL you want to scrape (e.g., https://valm23.github.io):"
 #Uses Open-URI to read our variable, stored as target_url and reads code.
 html_content = URI.open(target_url).read
 doc = Nokogiri::HTML(html_content)
@@ -14,7 +16,7 @@ if pre_tag.any?
   full_text_block = pre_tag.first.text
   puts "--Full Text Block --"
   puts full_text_block
-  puts "--------------------"
+  puts "-------------------"
 else
   puts "Could not find the target tag, try again."
 end
