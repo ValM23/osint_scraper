@@ -36,3 +36,14 @@ end
 #Cushion for data pushin
 column_width = column_width.map { |width| width + 2 }
 puts "Here's how thicc it is: #{column_width.inspect}"
+#Here's how we're gonna format this
+def print_horizontal_line(column_width)
+  lines = column_width.map { |width| '-' * width }
+  puts '+' + lines.join('+') + '+'
+end
+print_horizontal_line(column_width)
+header = headers.each_with_index.map do |header, index|
+  header.ljust(column_width[index])
+end
+puts '|' + header.join('|') + '|'
+print_horizontal_line(column_width)
