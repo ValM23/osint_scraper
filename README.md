@@ -1,9 +1,23 @@
-OSINT Scraper - Document Scrubbing and Instance Finder
+ OSINT Scraper — Document Scrubbing and Instance Finder
 
-- The purpose of this program is to take in a document to take in a document, or .txt file with copy and pasted info from a target site and find keywords and present any and all instances of keywords for Open Source Intelligence purposes.
-- It's current form basically looks for words in my own resume, but functionality is being added to take in custom files by pointing it at a directory and having it look for keywords and even cat-ing out the passage that contains context for the keyword.
-- The basic idea is to get both key passages and or relevant information for forming a Social Engineering plan using available information. It could be expanded to be pointed at a directory on a website and crawling the directory for creds or other goodies.
+Takes a document or plaintext dump of scraped page content and searches it
+for a configurable set of keywords, returning each match with surrounding
+context.
 
-This is to be used for ethical and legal purposes either in controlled Labs and or for utility purposes. The creator of this program is not responsible for what chaos you wrought with my little tool. 
+The current build is scoped to my own resume — it looks for terms from it
+across scraped source material to check whether a target site or document
+already contains relevant information. Support for pointing it at an
+arbitrary directory or file set instead is in progress.
 
-- this program had help from Google Gemini but the typing and flavour text was written by yours truly. Gemini's version of this program was much less funny, trust me. 
+The intended use is building a picture for a social-engineering assessment:
+which passages contain relevant terms, what context surrounds them, and
+whether they're worth following up. It could reasonably be extended to
+crawl a target directory for credentials or other artifacts.
+
+Written with Google Gemini assistance for the scaffolding.
+
+## Scope
+
+For use in authorized, controlled environments only — labs, CTFs, or
+engagements you're cleared for. Not intended for use against systems
+without permission.
